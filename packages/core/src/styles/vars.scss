@@ -1,0 +1,11 @@
+:root {
+  @media (prefers-color-scheme: dark) {
+    --primary: #6c6cf1;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --primary: #58c73f;
+  }
+
+  --depth-01: 0 0 8px rgba(0 0 0 / 10%)
+}

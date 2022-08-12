@@ -1,0 +1,27 @@
+{
+  "name": "@harmony/root",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Viktor Lotarev",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "yarn install && build:icons && build:core",
+    "build": "turbo run build",
+    "build:core": "turbo run build --scope=@harmony/core",
+    "build:icons": "turbo run build --scope=@harmony/icons",
+    "storybook": "turbo run storybook --scope=@harmony/core"
+  },
+  "devDependencies": {
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "yarn": ">=1.22.10",
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.10"
+}

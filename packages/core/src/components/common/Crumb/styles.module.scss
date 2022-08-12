@@ -1,0 +1,62 @@
+@use "@/styles/main.scss";
+
+.crumb {
+  $property: color, background-color, transform;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button[type=button] {
+    background: transparent;
+    border: none;
+    transition: ease 0.25s;
+    transition-property: $property;
+    will-change: $property;
+    cursor: pointer;
+
+    &:not(:disabled):active {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      color: rgba(0 0 0 / 10%);
+      cursor: not-allowed;
+    }
+  }
+
+  &_title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    height: 28px;
+    color: rgba(0 0 0 / 75%);
+    border-radius: 4px;
+    padding: 0 6px;
+
+    &:not(:disabled):hover {
+      color: rgba(1, 149, 255, 0.75);
+      background: rgba(0 0 0 / 5%);
+    }
+  }
+
+  &_divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0 0 0 / 25%);
+    padding: 0 4px;
+
+    &:hover {
+      color: rgba(1, 149, 255, 0.75);
+    }
+  }
+
+  &_nesting {
+    position: absolute;
+    min-width: 100%;
+    top: calc(100% + 4px);
+    left: 0;
+  }
+}

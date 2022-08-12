@@ -1,0 +1,29 @@
+@use "@/styles/main.scss";
+
+.counter {
+  display: inline-block;
+  position: relative;
+
+  &_input {
+    padding-right: 48px !important;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &_control {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: flex;
+    flex-direction: column;
+
+    button[type=button]:nth-child(1) {
+      border-bottom: 1px solid rgba(0 0 0 / 5%);
+    }
+  }
+}
