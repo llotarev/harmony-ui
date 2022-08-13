@@ -1,12 +1,29 @@
 @use "@/styles/main.scss";
 
 .input {
-  height: 48px;
-  background: rgba(0 0 0 / 5%);
-  border: none;
-  border-radius: 8px;
+  --accent-color: var(--color-blue-500);
+  --accent-color-200: var(--color-blue-200);
+
+  height: 46px;
+  background: var(--tone-400);
+  border: 1px solid transparent;
+  border-radius: var(--radius-01);
+  color: var(--text-700);
   padding: 0 16px;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
+
+  &::placeholder {
+    color: var(--text-400);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+
+  &:focus-visible {
+    outline: 4px solid var(--accent-color-200);
+  }
 }

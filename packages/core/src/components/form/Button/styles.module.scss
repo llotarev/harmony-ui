@@ -1,0 +1,114 @@
+@use "@/styles/main.scss";
+
+.button {
+  --accent-color: var(--color-blue-500);
+  --accent-color-200: var(--color-blue-200);
+  --accent-color-300: var(--color-blue-300);
+  --accent-color-600: var(--color-blue-600);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  background: var(--accent-color);
+  border: 1px solid transparent;
+  border-radius: var(--radius-01);
+  color: var(--text-200);
+  padding: 0 32px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  cursor: pointer;
+  transition: ease 0.25s;
+  transition-property: background-color, transform;
+  will-change: background-color, transform;
+
+  &:not(:disabled):not(&-outline):not(&-flat):not(&-text):not(&-destructive):hover {
+    background: var(--accent-color-600);
+  }
+
+  &:not(:disabled):focus-visible {
+    outline: 4px solid var(--accent-color-200);
+  }
+
+  &:not(:disabled):active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not(&-outline):not(&-flat):not(&-text):not(&-destructive):disabled {
+    background: var(--tone-600);
+    color: var(--text-400);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &-outline {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+
+    &:disabled {
+      color: var(--text-400);
+      border-color: var(--text-400);
+    }
+  }
+
+  &-flat {
+    background: var(--accent-color-200);
+    color: var(--accent-color);
+    border-color: transparent;
+
+    &:hover {
+      background: var(--accent-color-300);
+      color: var(--accent-color-600);
+    }
+
+    &:not(:disabled):focus-visible {
+      outline: 4px solid var(--accent-color-300);
+    }
+
+
+    &:disabled {
+      background: var(--tone-600);
+      color: var(--text-400);
+      border-color: transparent;
+    }
+  }
+
+  &-text {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: transparent;
+
+    &:hover {
+      color: var(--accent-color-600);
+    }
+
+    &:disabled {
+      background: transparent;
+      color: var(--text-400);
+      border-color: transparent;
+    }
+  }
+
+  &-destructive {
+    background: var(--color-red-500);
+    color: var(--text-200);
+
+    &:hover {
+      background: var(--color-red-600);
+    }
+
+    &:disabled {
+      background: transparent;
+      color: var(--text-400);
+      border-color: transparent;
+    }
+  }
+}

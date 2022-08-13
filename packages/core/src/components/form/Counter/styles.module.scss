@@ -1,8 +1,11 @@
 @use "@/styles/main.scss";
 
 .counter {
-  display: inline-block;
+  --accent-color: var(--color-blue);
+  --accent-color-200: var(--color-blue-200);
+
   position: relative;
+  display: inline-block;
 
   &_input {
     padding-right: 48px !important;
@@ -22,8 +25,25 @@
     display: flex;
     flex-direction: column;
 
-    button[type=button]:nth-child(1) {
-      border-bottom: 1px solid rgba(0 0 0 / 5%);
+
+    button[type=button] {
+      $corner-radius: calc(var(--radius-01) * 0.8);
+
+      &:nth-child(1) {
+        border-radius: $corner-radius $corner-radius 0 0;
+      }
+
+      &:nth-child(2) {
+        border-radius: 0 0 $corner-radius $corner-radius;
+      }
+
+      &:nth-child(1) {
+        border-bottom: 1px solid rgba(0 0 0 / 5%);
+      }
+
+      &:focus-visible {
+        border: 1px solid var(--accent-color);
+      }
     }
   }
 }

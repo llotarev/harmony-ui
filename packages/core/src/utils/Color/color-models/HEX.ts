@@ -35,6 +35,12 @@ class HEX {
 
     return `hsl(${H}, ${S}%, ${L}%, ${percent}%)`
   }
+
+  public lightness(amount: number) {
+    const [H, S] = this.converter.HEXtoHSL(this._color);
+
+    return `hsl(${H}, ${S}%, ${amount}%)`
+  }
 }
 
 export default HEX;
