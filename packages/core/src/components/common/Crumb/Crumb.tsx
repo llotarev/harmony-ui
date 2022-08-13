@@ -20,11 +20,11 @@ function Crumb<T>(props: Types.Props<T>) {
 
   const handleTitleClick = React.useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
     onTitleClick(event, crumb);
-  }, [onTitleClick, crumb])
+  }, [crumb])
 
   const handleDividerClick = React.useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
     onDividerClick(event, crumb.nesting);
-  }, [onDividerClick, crumb])
+  }, [crumb])
 
   return (
     <div className={classes}>

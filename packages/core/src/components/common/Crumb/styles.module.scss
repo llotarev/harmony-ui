@@ -1,7 +1,7 @@
 @use "@/styles/main.scss";
 
 .crumb {
-  $property: color, background-color, transform;
+  --accent-color: var(--color-blue-500);
 
   position: relative;
   display: flex;
@@ -12,8 +12,8 @@
     background: transparent;
     border: none;
     transition: ease 0.25s;
-    transition-property: $property;
-    will-change: $property;
+    transition-property: color, background-color, transform;
+    will-change: color, background-color, transform;
     cursor: pointer;
 
     &:not(:disabled):active {
@@ -31,12 +31,12 @@
     font-style: normal;
     font-weight: 500;
     height: 28px;
-    color: rgba(0 0 0 / 75%);
+    color: var(--text-700);
     border-radius: 4px;
     padding: 0 6px;
 
     &:not(:disabled):hover {
-      color: rgba(1, 149, 255, 0.75);
+      color: var(--accent-color);
       background: rgba(0 0 0 / 5%);
     }
   }
@@ -45,11 +45,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(0 0 0 / 25%);
+    color: var(--tone-600);
     padding: 0 4px;
 
     &:hover {
-      color: rgba(1, 149, 255, 0.75);
+      color: var(--accent-color);
     }
   }
 

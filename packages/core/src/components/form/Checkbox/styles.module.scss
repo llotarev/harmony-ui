@@ -1,0 +1,44 @@
+@use "@/styles/main.scss";
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  color: var(--text-200);
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+  gap: 8px;
+
+  &_input {
+    width: inherit !important;
+    height: inherit !important;
+    padding: 0 !important;
+    border-radius: calc(var(--radius-01) * 0.6) !important;
+    transition: ease 0.25s;
+    transition-property: background-color;
+    will-change: background-color;
+    appearance: none;
+
+    &:checked {
+      background: var(--accent-color);
+    }
+  }
+
+  &_checkmark {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: ease 0.25s;
+    transition-property: top, opacity;
+    will-change: top, opacity;
+  }
+
+  &_input:checked + &_checkmark {
+    top: 50%;
+    opacity: 1;
+  }
+}

@@ -2,10 +2,10 @@ import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import Button from "@/components/form/Button";
 import * as Icons from "@harmony/icons";
-import Color from "@/utils/Color";
 import palette from '@/accets/palettes.json'
+import Color from "@/utils/Color";
 
-const color = new Color()
+const color = new Color();
 
 export default {
   title: 'form/Button',

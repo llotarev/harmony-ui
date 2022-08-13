@@ -3,7 +3,7 @@
 .breadCrumbs {
   display: inline-flex;
   flex-wrap: wrap;
-  background: rgba(0 0 0 / 5%);
+  background: var(--text-200);
   border-radius: 6px;
   padding: 2px;
 }
