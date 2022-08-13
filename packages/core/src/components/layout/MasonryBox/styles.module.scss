@@ -1,0 +1,9 @@
+.masonryBox {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
+
+  * {
+    min-width: 100%;
+  }
+}

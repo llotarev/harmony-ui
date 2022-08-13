@@ -1,0 +1,15 @@
+.stackLayout {
+  --stack-gap: 16px;
+
+  display: flex;
+  gap: var(--stack-gap);
+
+
+  &-horizontal {
+    flex-direction: row;
+  }
+
+  &-vertical {
+    flex-direction: column;
+  }
+}
