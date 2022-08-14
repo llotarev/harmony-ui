@@ -1,0 +1,32 @@
+@use "@/styles/main.scss";
+
+.slider {
+  --slider-track-width: 200px;
+  --slider-track: calc(var(--slider-track-width) * -1) 0 0 calc(var(--slider-track-width) - 11px);
+
+  appearance: none;
+  height: 24px !important;
+  padding: 0 !important;
+  border-color: transparent !important;
+  overflow: hidden;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--tone-200);
+    box-shadow: var(--shadow-01), var(--slider-track) var(--color-blue-500);
+    border-radius: 50%;
+    cursor: grab;
+  }
+
+  &:disabled {
+    border-color: var(--tone-600) !important;
+
+    &::-webkit-slider-thumb {
+      background: var(--tone-400);
+      box-shadow: var(--slider-track) var(--tone-600);
+      cursor: not-allowed;
+    }
+  }
+}

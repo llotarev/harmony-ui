@@ -1,11 +1,4 @@
 :root {
-  --tone-200: #F4F4F4;
-  --tone-300: #EFEFEF;
-  --tone-400: #E9E9E9;
-  --tone-500: #E4E4E4;
-  --tone-600: #CBCBCB;
-  --tone-700: #B0B0B0;
-
   --color-blue-100: #E4E8FF;
   --color-blue-200: #C5CEFF;
   --color-blue-300: #A1B1FF;
@@ -45,6 +38,23 @@
   --color-orange-700: #BC752E;
   --color-orange-800: #996025;
   --color-orange-900: #6C431A;
+
+  --tone-200: #F4F4F4;
+  --tone-300: #EFEFEF;
+  --tone-400: #E9E9E9;
+  --tone-500: #E4E4E4;
+  --tone-600: #CBCBCB;
+  --tone-700: #B0B0B0;
+
+  --accent-color-100: var(--color-blue-100);
+  --accent-color-200: var(--color-blue-200);
+  --accent-color-300: var(--color-blue-300);
+  --accent-color-400: var(--color-blue-400);
+  --accent-color-500: var(--color-blue-500);
+  --accent-color-600: var(--color-blue-600);
+  --accent-color-700: var(--color-blue-700);
+  --accent-color-800: var(--color-blue-800);
+  --accent-color-900: var(--color-blue-900);
 
   --text-200: #F1F1F1;
   --text-300: #E2E2E2;

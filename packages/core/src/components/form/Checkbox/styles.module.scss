@@ -9,20 +9,28 @@
   user-select: none;
   cursor: pointer;
   overflow: hidden;
-  gap: 8px;
 
   &_input {
     width: inherit !important;
     height: inherit !important;
     padding: 0 !important;
+    border-color: var(--accent-color-500);
     border-radius: calc(var(--radius-01) * 0.6) !important;
     transition: ease 0.25s;
-    transition-property: background-color;
-    will-change: background-color;
+    transition-property: border-color, background-color;
+    will-change: border-color, background-color;
     appearance: none;
 
     &:checked {
-      background: var(--accent-color);
+      background: var(--accent-color-500);
+    }
+
+    &:checked:disabled {
+      background: var(--tone-600);
+    }
+
+    &:disabled {
+      border-color: var(--tone-600);
     }
   }
 
@@ -32,6 +40,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    pointer-events: none;
     transition: ease 0.25s;
     transition-property: top, opacity;
     will-change: top, opacity;

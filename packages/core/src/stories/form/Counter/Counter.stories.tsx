@@ -5,7 +5,11 @@ import Counter from "@/components/form/Counter";
 export default {
   title: 'form/Counter',
   component: Counter,
-  argTypes: {},
+  argTypes: {
+    disabled: {
+      control: {type: 'boolean'},
+    },
+  },
 } as ComponentMeta<typeof Counter>;
 
 const Template: ComponentStory<typeof Counter> = (args) => <Counter {...args} />;

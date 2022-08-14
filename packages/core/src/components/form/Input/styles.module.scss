@@ -1,9 +1,6 @@
 @use "@/styles/main.scss";
 
 .input {
-  --accent-color: var(--color-blue-500);
-  --accent-color-200: var(--color-blue-200);
-
   height: 46px;
   background: var(--tone-400);
   border: 1px solid transparent;
@@ -18,12 +15,18 @@
     color: var(--text-400);
   }
 
-  &:focus {
+  &:not(:disabled):focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--accent-color-500);
   }
 
   &:focus-visible {
     outline: 4px solid var(--accent-color-200);
+  }
+
+  &:disabled {
+    background: var(--tone-500);
+    color: var(--text-400);
+    cursor: not-allowed;
   }
 }

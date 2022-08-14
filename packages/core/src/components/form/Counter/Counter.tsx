@@ -17,8 +17,8 @@ const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => 
     <div className={classes}>
       <Input {...props} ref={ref} type="number" className={styles.counter_input}/>
       <FieldControl className={styles.counter_control}>
-        <button type="button"><Icons.ArrowUp/></button>
-        <button type="button"><Icons.ArrowDown/></button>
+        <button disabled={props.disabled} type="button"><Icons.ArrowUp/></button>
+        <button disabled={props.disabled} type="button"><Icons.ArrowDown/></button>
       </FieldControl>
     </div>
   )

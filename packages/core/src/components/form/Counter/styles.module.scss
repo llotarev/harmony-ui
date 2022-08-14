@@ -1,9 +1,6 @@
 @use "@/styles/main.scss";
 
 .counter {
-  --accent-color: var(--color-blue);
-  --accent-color-200: var(--color-blue-200);
-
   position: relative;
   display: inline-block;
 
@@ -38,11 +35,11 @@
       }
 
       &:nth-child(1) {
-        border-bottom: 1px solid rgba(0 0 0 / 5%);
+        border-bottom: 1px solid var(--tone-500);
       }
 
       &:focus-visible {
-        border: 1px solid var(--accent-color);
+        border: 1px solid var(--accent-color-500);
       }
     }
   }

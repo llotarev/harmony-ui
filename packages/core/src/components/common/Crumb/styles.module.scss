@@ -1,8 +1,6 @@
 @use "@/styles/main.scss";
 
 .crumb {
-  --accent-color: var(--color-blue-500);
-
   position: relative;
   display: flex;
   align-items: center;
@@ -36,7 +34,7 @@
     padding: 0 6px;
 
     &:not(:disabled):hover {
-      color: var(--accent-color);
+      color: var(--accent-color-500);
       background: rgba(0 0 0 / 5%);
     }
   }
@@ -49,7 +47,7 @@
     padding: 0 4px;
 
     &:hover {
-      color: var(--accent-color);
+      color: var(--accent-color-500);
     }
   }
 
