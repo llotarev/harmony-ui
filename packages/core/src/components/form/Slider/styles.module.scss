@@ -1,7 +1,6 @@
 @use "@/styles/main.scss";
 
 .slider {
-  --slider-track-width: 200px;
   --slider-track: calc(var(--slider-track-width) * -1) 0 0 calc(var(--slider-track-width) - 11px);
 
   appearance: none;

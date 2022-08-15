@@ -1,3 +1,16 @@
 import React from "react";
 
-export type Props = React.InputHTMLAttributes<HTMLInputElement>;
+type Picked =
+  | "step"
+  | "min"
+  | "max"
+  | "value"
+  | "onChange"
+
+export type Props = Omit<React.InputHTMLAttributes<HTMLInputElement>, Picked> & {
+  min?: number
+  max?: number
+  step?: number
+  value?: number
+  onChange?(value: number, e?: React.ChangeEvent<HTMLInputElement>): void
+}

@@ -32,7 +32,7 @@ function Crumb<T>(props: Types.Props<T>) {
         {children}
       </button>
       {crumb.nesting && (
-        <button className={styles.crumb_divider} type="button" onClick={handleDividerClick}>
+        <button type="button" disabled={attrs.disabled} className={styles.crumb_divider} onClick={handleDividerClick}>
           <Icons.ArrowRight/>
         </button>
       )}

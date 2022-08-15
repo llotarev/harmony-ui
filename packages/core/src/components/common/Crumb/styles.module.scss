@@ -19,7 +19,6 @@
     }
 
     &:disabled {
-      color: rgba(0 0 0 / 10%);
       cursor: not-allowed;
     }
   }
@@ -29,13 +28,16 @@
     font-style: normal;
     font-weight: 500;
     height: 28px;
-    color: var(--text-700);
+    color: var(--text-400);
     border-radius: 4px;
     padding: 0 6px;
 
     &:not(:disabled):hover {
       color: var(--accent-color-500);
-      background: rgba(0 0 0 / 5%);
+    }
+
+    &:disabled {
+      color: var(--text-300)
     }
   }
 
@@ -48,6 +50,10 @@
 
     &:hover {
       color: var(--accent-color-500);
+    }
+
+    &:disabled {
+      color: var(--text-300)
     }
   }
 
