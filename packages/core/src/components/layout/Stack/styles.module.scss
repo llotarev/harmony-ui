@@ -1,5 +1,8 @@
 .stackLayout {
+  $self: &;
+
   --stack-gap: 16px;
+
 
   display: flex;
   gap: var(--stack-gap);
@@ -7,6 +10,18 @@
 
   &-horizontal {
     flex-direction: row;
+
+    #{$self+'-start'} {
+      align-items: flex-start
+    }
+
+    #{$self+'-middle'} {
+      align-items: center
+    }
+
+    #{$self+'-end'} {
+      align-items: flex-end
+    }
   }
 
   &-vertical {

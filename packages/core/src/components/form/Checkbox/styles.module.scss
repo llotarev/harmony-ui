@@ -19,6 +19,7 @@
     transition-property: border-color, background-color;
     will-change: border-color, background-color;
     appearance: none;
+    cursor: pointer;
 
     &:checked {
       background: var(--accent-color-500);
