@@ -15,13 +15,13 @@
     color: var(--text-400);
   }
 
-  &:not(:disabled):focus {
-    outline: none;
+  &:not(:disabled):hover {
     border-color: var(--accent-color-500);
   }
 
-  &:focus-visible {
+  &:not(:disabled):focus {
     outline: 4px solid var(--accent-color-200);
+    border-color: var(--accent-color-500);
   }
 
   &:disabled {

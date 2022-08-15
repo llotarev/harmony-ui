@@ -8,14 +8,13 @@
   color: var(--text-200);
   user-select: none;
   cursor: pointer;
-  overflow: hidden;
 
   &_input {
     width: inherit !important;
     height: inherit !important;
-    padding: 0 !important;
-    border-color: var(--accent-color-500);
+    border-color: var(--color-blue-500) !important;
     border-radius: calc(var(--radius-01) * 0.6) !important;
+    padding: 0 !important;
     transition: ease 0.25s;
     transition-property: border-color, background-color;
     will-change: border-color, background-color;
@@ -30,24 +29,27 @@
     }
 
     &:disabled {
-      border-color: var(--tone-600);
+      border-color: var(--tone-600) !important;
     }
   }
 
   &_checkmark {
+    width: 16px;
+    height: 12px;
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: calc(50% - 6px);
+    left: calc(50% - 8px);
+    transform: scale(0);
+    transform-origin: center;
     opacity: 0;
     pointer-events: none;
     transition: ease 0.25s;
-    transition-property: top, opacity;
-    will-change: top, opacity;
+    transition-property: transform, opacity;
+    will-change: transform, opacity;
   }
 
   &_input:checked + &_checkmark {
-    top: 50%;
     opacity: 1;
+    transform: scale(1);
   }
 }
