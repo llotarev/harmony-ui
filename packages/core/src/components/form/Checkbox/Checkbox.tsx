@@ -23,7 +23,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) =>
     <label htmlFor={attrs.id}>
       <Flex inline direction="row" align="center" justify="center" gap="8px">
         <Input {...attrs} type="checkbox" ref={ref} className={classes}/>
-        <span>{finalLabel}</span>
+        {finalLabel}
       </Flex>
     </label>
   )

@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof Flex> = (args) => {
         <Checkbox/>
         <Checkbox/>
         <Checkbox/>
-        <Radio name="radio"/>
+        <Radio name="radio">Radio</Radio>
         <Radio name="radio"/>
         <Radio name="radio"/>
         <Radio name="radio"/>
