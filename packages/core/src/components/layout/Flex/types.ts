@@ -1,12 +1,9 @@
 import React from "react";
 
-export type Direction = "column" | "row" | "row-reverse" | "column-reverse"
-export type AlignJustify = "flex-start" | "center" | "flex-end"
-
 export type Props = React.HTMLAttributes<HTMLDivElement> & {
   gap?: string
-  align?: AlignJustify
-  justify?: AlignJustify
-  direction?: Direction
+  align?: "flex-start" | "center" | "flex-end"
+  justify?: "flex-start" | "center" | "flex-end"
+  direction?: "column" | "row" | "row-reverse" | "column-reverse"
   inline?: boolean
 }

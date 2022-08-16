@@ -8,19 +8,19 @@ import useClassCombine from "@/hooks/useClassCombine";
 
 const Slider: React.FC<Types.Props> = (props) => {
 
-  const ref = React.useRef<Types.Ref>(null);
-  const {width} = useSize<Types.Ref>(ref);
+  const sliderRef = React.useRef(null);
+  const sliderSize = useSize(sliderRef);
 
-  const styleCombine = useStyleCombine<Types.Props>(props, {
-    '--slider-track-width': width + 'px'
+  const styleCombine = useStyleCombine(props, {
+    '--slider-track-width': sliderSize.width + 'px'
   });
 
-  const classes = useClassCombine<Types.Props>(props, [
+  const classes = useClassCombine(props, [
     styles.slider
   ])
 
   return (
-    <Input {...props} type="range" ref={ref} style={styleCombine} className={classes}/>
+    <Input {...props} type="range" ref={sliderRef} style={styleCombine} className={classes}/>
   )
 };
 

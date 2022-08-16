@@ -6,7 +6,7 @@
 
   &_input {
     width: 100%;
-    padding-right: 48px !important;
+    padding-right: calc(var(--field-control-width) + 4px) !important;
     -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
