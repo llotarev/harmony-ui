@@ -1,9 +1,9 @@
-import { defineConfig } from "vite";
+import {defineConfig} from "vite";
 import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
 import autoprefixer from 'autoprefixer'
 import postcssNesting from 'postcss-nesting'
-import { resolve } from "path";
+import {resolve} from "path";
 
 export default defineConfig({
   plugins: [react(), dts()],
