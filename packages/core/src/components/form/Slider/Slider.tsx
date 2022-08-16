@@ -1,29 +1,26 @@
 import React from "react";
 import styles from './styles.module.scss'
 import * as Types from './types'
-import cn from "classnames";
 import Input from "@/components/form/Input";
-import useElementSize from "@/hooks/useElementSize";
+import useSize from "@/hooks/useSize";
+import useStyleCombine from "@/hooks/useStyleCombine";
+import useClassCombine from "@/hooks/useClassCombine";
 
 const Slider: React.FC<Types.Props> = (props) => {
 
-  const inputRef = React.useRef<HTMLInputElement | null>(null);
-  const elementSize = useElementSize<HTMLInputElement | null>(inputRef);
+  const ref = React.useRef<Types.Ref>(null);
+  const {width} = useSize<Types.Ref>(ref);
 
-  const style = React.useMemo<React.CSSProperties>(() => {
-    return {
-      ...props.style,
-      ['--slider-track-width']: `${elementSize.width}px`
-    }
-  }, [props.style, elementSize]);
+  const styleCombine = useStyleCombine<Types.Props>(props, {
+    '--slider-track-width': width + 'px'
+  });
 
-  const classes = cn([
-    props.className,
+  const classes = useClassCombine<Types.Props>(props, [
     styles.slider
-  ]);
+  ])
 
   return (
-    <Input {...props} type="range" ref={inputRef} style={style} className={classes}/>
+    <Input {...props} type="range" ref={ref} style={styleCombine} className={classes}/>
   )
 };
 

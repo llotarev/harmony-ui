@@ -4,18 +4,22 @@ import * as Types from './types';
 import * as Icons from "@harmony/icons";
 import Input from "@/components/form/Input";
 import FieldControl from "@/components/form/FieldControl";
-import cn from "classnames";
+import useClassCombine from "@/hooks/useClassCombine";
+import useCounter from "@/hooks/useCounter";
 
 const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => {
 
   const {
-    min = -Infinity,
-    max = Infinity,
-    step = 1,
-    value = 0,
+    value = 0, disabled, step = 1, min = -Infinity, max = Infinity,
     onChange = () => null,
     ...attrs
   } = props
+
+  const counter = useCounter({
+    count: value, min, max, step,
+    onIncrement: onChange,
+    onDecrement: onChange
+  });
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const count = Number(e.target.value);
@@ -24,41 +28,25 @@ const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => 
     onChange(value, e);
   }, [min, max]);
 
-  const handleIncrement = React.useCallback(() => {
-    onChange(value + step);
-  }, [value, step])
+  const finalProps = React.useMemo(() => ({
+    ref,
+    type: "number",
+    value: value.toString(),
+    disabled, step, min, max,
+  }), [ref, value, disabled, step, min, max]);
 
-  const handleDecrement = React.useCallback(() => {
-    onChange(value - step);
-  }, [value, step])
-
-  const minValue = React.useMemo<boolean>(() => min >= value, [min, value]);
-  const maxValue = React.useMemo<boolean>(() => max <= value, [max, value]);
-  const finalValue = React.useMemo<string>(() => value.toString(), [value]);
-
-  const classes = cn([
-    props.className,
+  const classes = useClassCombine(attrs, [
     styles.counter
   ]);
 
   return (
     <div className={classes}>
-      <Input
-        {...attrs}
-        ref={ref}
-        type="number"
-        min={min}
-        max={max}
-        step={step}
-        value={finalValue}
-        onChange={handleChange}
-        className={styles.counter_input}
-      />
+      <Input {...attrs} {...finalProps} onChange={handleChange} className={styles.counter_input}/>
       <FieldControl className={styles.counter_control}>
-        <button disabled={props.disabled || maxValue} type="button" onClick={handleIncrement}>
+        <button disabled={disabled || counter.isMax} type="button" onClick={counter.increment}>
           <Icons.ArrowUp/>
         </button>
-        <button disabled={props.disabled || minValue} type="button" onClick={handleDecrement}>
+        <button disabled={disabled || counter.isMin} type="button" onClick={counter.decrement}>
           <Icons.ArrowDown/>
         </button>
       </FieldControl>

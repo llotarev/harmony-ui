@@ -1,15 +1,22 @@
 @use "@/styles/main.scss";
+@use "@/styles/mixins.scss";
 
 .input {
+  $transition-property: background, color, border, outline-width;
+
   height: 46px;
   background: var(--tone-400);
-  border: 1px solid transparent;
-  border-radius: var(--radius-01);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--tone-500);
+  border-radius: var(--corner-radius);
   color: var(--text-700);
+  accent-color: var(--accent-color-500);
   padding: 0 16px;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
+  @include mixins.transition($transition-property);
 
   &::placeholder {
     color: var(--text-400);
@@ -26,6 +33,7 @@
 
   &:disabled {
     background: var(--tone-500);
+    border-color: var(--tone-600);
     color: var(--text-400);
     cursor: not-allowed;
   }

@@ -5,7 +5,9 @@ type SizeType = {
   height: number
 }
 
-function useElementSize<T extends HTMLElement | null>(ref: React.MutableRefObject<T>): SizeType {
+type ReturnType = SizeType;
+
+function useSize<T extends HTMLElement | null>(ref: React.MutableRefObject<T>): ReturnType {
 
   const [size, setSize] = React.useState<SizeType>({
     width: 0,
@@ -25,18 +27,14 @@ function useElementSize<T extends HTMLElement | null>(ref: React.MutableRefObjec
     const element = ref.current;
     const resizeObserver = new ResizeObserver(handleResize);
 
-    if (element) {
-      resizeObserver.observe(element as Element);
-    }
+    if (element) resizeObserver.observe(element as Element);
 
     return () => {
-      if (element) {
-        resizeObserver.unobserve(element as Element);
-      }
+      if (element) resizeObserver.unobserve(element as Element);
     }
   }, [ref, handleResize])
 
   return size;
 }
 
-export default useElementSize;
+export default useSize;

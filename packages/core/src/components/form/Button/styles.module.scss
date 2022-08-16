@@ -1,22 +1,25 @@
 @use "@/styles/main.scss";
+@use "@/styles/mixins.scss";
 
 .button {
+  $transition-property: background, border, transform;
+
   display: inline-flex;
   align-items: center;
   gap: 8px;
   height: 46px;
   background: var(--accent-color-500);
-  border: 1px solid transparent;
-  border-radius: var(--radius-01);
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: var(--corner-radius);
   color: var(--text-200);
   padding: 0 32px;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   cursor: pointer;
-  transition: ease 0.25s;
-  transition-property: background-color, transform;
-  will-change: background-color, transform;
+  @include mixins.transition($transition-property);
 
   &:not(:disabled):not(&-outline):not(&-flat):not(&-text):not(&-destructive):hover {
     background: var(--accent-color-600);
@@ -98,6 +101,10 @@
 
     &:hover {
       background: var(--color-red-600);
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-red-200) !important;
     }
 
     &:disabled {

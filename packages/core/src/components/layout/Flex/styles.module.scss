@@ -1,0 +1,11 @@
+.flexLayout {
+  display: flex;
+  flex-direction: var(--flex-direction, row);
+  justify-content: var(--flex-justify, center);
+  align-items: var(--flex-align, center);
+  gap: var(--flex-gap, 12px);
+
+  &-inline {
+    display: inline-flex;
+  }
+}

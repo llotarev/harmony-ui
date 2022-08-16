@@ -1,23 +1,31 @@
 import React from "react";
 import styles from './styles.module.scss'
 import * as Types from './types'
-import * as Icons from '@harmony/icons'
 import Input from "@/components/form/Input";
-import cn from "classnames";
+import Flex from "@/components/layout/Flex";
+import useClassCombine from "@/hooks/useClassCombine";
 
 const Checkbox = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => {
 
-  const classes = cn([
-    props.className,
+  const {
+    children, label, ...attrs
+  } = props
+
+  const finalLabel = React.useMemo(() => children || label, [
+    children, label
+  ])
+
+  const classes = useClassCombine(attrs, [
     styles.checkbox
   ]);
 
   return (
-    <label htmlFor={props.id} className={classes}>
-      <Input {...props} type="checkbox" ref={ref} className={styles.checkbox_input}/>
-      <Icons.CheckMark className={styles.checkbox_checkmark}/>
+    <label htmlFor={attrs.id}>
+      <Flex inline direction="row" align="center" justify="center" gap="8px">
+        <Input {...attrs} type="checkbox" ref={ref} className={classes}/>
+        <span>{finalLabel}</span>
+      </Flex>
     </label>
-
   )
 })
 

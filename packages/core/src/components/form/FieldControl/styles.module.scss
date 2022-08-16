@@ -1,10 +1,13 @@
 @use "@/styles/main.scss";
+@use "@/styles/mixins.scss";
 
 .fieldControl {
+  $transition-property: color, box-shadow, transform, outline-width;
+
   width: 42px;
   height: 42px;
   background: var(--tone-200);
-  border-radius: calc(var(--radius-01) * 0.8);
+  border-radius: calc(var(--corner-radius) * 0.8);
   box-shadow: var(--shadow-01);
 
   > button[type=button] {
@@ -14,9 +17,8 @@
     border: none;
     cursor: pointer;
     background: transparent;
-    transition: 0.25s;
-    transition-property: color, box-shadow, transform;
-    will-change: color, box-shadow, transform;
+    @include mixins.transition($transition-property);
+
 
     &:focus {
       outline: none;

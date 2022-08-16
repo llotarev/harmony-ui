@@ -1,0 +1,26 @@
+@use "vars";
+
+@mixin transition($property) {
+  transition: var(--transition-style) var(--transition-timing);
+  transition-property: $property;
+  will-change: $property;
+}
+
+@mixin fixed-size($size) {
+  width: $size !important;
+  height: $size !important;
+  min-width: $size !important;
+  min-height: $size !important;
+}
+
+@mixin scrollbar($color: #{var(--accent-color-500)}, $width: 14px) {
+  &::-webkit-scrollbar { width: $width}
+  &::-webkit-scrollbar-track { border-radius: $width }
+  &::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: $color;
+    border: calc(#{$width} / 3.5) solid transparent;
+    border-radius: $width;
+  }
+  &::-webkit-scrollbar-thumb:hover { width: calc(#{$width} * 2) }
+}

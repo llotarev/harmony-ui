@@ -1,15 +1,22 @@
 import React from "react";
 
-type ReturnType = [boolean, React.MouseEventHandler];
+type PropsType = {
+  state?: boolean
+}
 
-function useToggle(initialState: boolean = false): ReturnType {
-  const [state, setState] = React.useState<boolean>(initialState);
+type ReturnType = {
+  state: boolean
+  toggle(): void
+};
 
-  const toggleState = React.useCallback(() => {
+function useToggle(props: PropsType): ReturnType {
+  const [state, setState] = React.useState<boolean>(!!props.state);
+
+  const toggle = React.useCallback(() => {
     setState(state => !state);
   }, []);
 
-  return [state, toggleState];
+  return {state, toggle};
 }
 
 export default useToggle;

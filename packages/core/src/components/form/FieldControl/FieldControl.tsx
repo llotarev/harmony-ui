@@ -1,7 +1,7 @@
 import React from "react";
 import * as Types from './types'
 import styles from './styles.module.scss'
-import cn from "classnames";
+import useClassCombine from "@/hooks/useClassCombine";
 
 const FieldControl = React.forwardRef<HTMLDivElement, Types.Props>((props, ref) => {
 
@@ -9,8 +9,7 @@ const FieldControl = React.forwardRef<HTMLDivElement, Types.Props>((props, ref) 
     children, ...attrs
   } = props
 
-  const classes = cn([
-    props.className,
+  const classes = useClassCombine(attrs,[
     styles.fieldControl
   ]);
 
