@@ -16,7 +16,7 @@ export default create({
   inputBorder: palette.Tone["400"],
   colorPrimary: palette.Blue["500"],
   colorSecondary: palette.Blue["500"],
-  fontBase: "Ubuntu, sans-serif",
+  fontBase: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";',
   appBorderRadius: "12px",
   inputBorderRadius: "12px",
 });
