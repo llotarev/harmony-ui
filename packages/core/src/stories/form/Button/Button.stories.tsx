@@ -3,9 +3,7 @@ import {ComponentMeta, ComponentStory} from '@storybook/react';
 import Button from "@/components/form/Button";
 import * as Icons from "@harmony/icons";
 import palette from '@/accets/palettes.json'
-import Color from "@/utils/Color";
 
-const color = new Color();
 
 export default {
   title: 'form/Button',
@@ -48,20 +46,20 @@ WithIcon.args = {
 Custom.args = {
   children: (
     <>
-      Button
-      <Icons.ArrowRight height="1em"/>
+      <Icons.ArrowLeft/>
+      Back
     </>
   ),
   style: {
     // @ts-ignore
-    '--accent-color': color.HEX(palette.Green['500']).lightness(60),
-    '--accent-color-200': color.HEX(palette.Green['500']).lightness(90),
-    '--accent-color-300': color.HEX(palette.Green['500']).lightness(50),
-    '--accent-color-600': color.HEX(palette.Green['500']).lightness(40),
-    height: '24px',
-    fontSize: "14px",
-    fontWeight: 600,
-    borderRadius: "6px",
-    padding: " 0 6px",
+    '--accent-color-500': palette.Orange['500'],
+    '--accent-color-200': palette.Orange['200'],
+    '--accent-color-300': palette.Orange['300'],
+    '--accent-color-600': palette.Orange['600'],
+    '--corner-radius': '2px',
+    height: 'auto',
+    fontSize: "18px",
+    fontWeight: 400,
+    padding: "2px 12px",
   }
 }

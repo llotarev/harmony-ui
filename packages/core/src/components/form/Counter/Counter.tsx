@@ -7,7 +7,7 @@ import FieldControl from "@/components/form/FieldControl";
 import useClassCombine from "@/hooks/useClassCombine";
 import useCounter from "@/hooks/useCounter";
 import useStyleCombine from "@/hooks/useStyleCombine";
-import useSize from "@/hooks/useSize";
+import useResizeObserver from "@/hooks/useResizeObserver";
 
 const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => {
 
@@ -25,7 +25,7 @@ const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => 
   }, [min, max]);
 
   const fieldControlRef = React.useRef(null);
-  const fieldControlSize = useSize(fieldControlRef)
+  const fieldControlEntry = useResizeObserver(fieldControlRef);
 
   const counter = useCounter({
     count: value, min, max, step,
@@ -34,23 +34,31 @@ const Counter = React.forwardRef<HTMLInputElement, Types.Props>((props, ref) => 
   });
 
   const style = useStyleCombine(attrs, {
-    '--field-control-width': fieldControlSize.width + 'px'
+    '--field-control-width': fieldControlEntry?.contentRect.width + 'px'
   });
 
   const classes = useClassCombine(attrs, [
     styles.counter
   ]);
 
-  const finalProps = React.useMemo(() => ({
-    type: "number",
-    value: value.toString(),
-    disabled, step, min, max, style
-  }), [ref, value, disabled, step, min, max, style]);
-
+  const finalValue = React.useMemo(() => value.toString(), [value])
 
   return (
     <div className={classes}>
-      <Input {...attrs} {...finalProps} ref={ref} onChange={handleChange} className={styles.counter_input}/>
+      <Input
+        {...attrs}
+        ref={ref}
+        type="number"
+        inputMode="tel"
+        min={min}
+        max={max}
+        step={step}
+        style={style}
+        value={finalValue}
+        disabled={disabled}
+        onChange={handleChange}
+        className={styles.counter_input}
+      />
       <FieldControl ref={fieldControlRef} className={styles.counter_control}>
         <button disabled={disabled || counter.isMax} type="button" onClick={counter.increment}>
           <Icons.ArrowUp/>

@@ -5,23 +5,28 @@ import Radio from '@/components/form/Radio';
 import Button from '@/components/form/Button';
 import Counter from '@/components/form/Counter';
 import Checkbox from '@/components/form/Checkbox';
-import useMediaQuery from "@/hooks/useMediaQuery";
+import * as Icon from '@harmony/icons';
+import React from "react";
 
 export default {
   title: 'layout/Flex',
   component: Flex,
   argTypes: {
-    align: {
+    wrap: {
       control: {type: 'select'},
-      options: ["flex-start", "center", "flex-end"]
-    },
-    justify: {
-      control: {type: 'select'},
-      options: ["flex-start", "center", "flex-end"]
+      options: [null, "wrap", "nowrap"]
     },
     direction: {
       control: {type: 'select'},
-      options: ['row', 'column', 'row-reverse', 'column-reverse']
+      options: [null, 'row', 'column', 'row-reverse', 'column-reverse']
+    },
+    align: {
+      control: {type: 'select'},
+      options: [null, "flex-start", "center", "flex-end"]
+    },
+    justify: {
+      control: {type: 'select'},
+      options: [null, "flex-start", "center", "flex-end", "space-between", "space-around"]
     },
     gap: {
       control: {type: 'text'},
@@ -30,24 +35,25 @@ export default {
 } as ComponentMeta<typeof Flex>;
 
 const Template: ComponentStory<typeof Flex> = (args) => {
-  const isMobile = useMediaQuery('(max-width: 400px)')
+
+  const [count, setCount] = React.useState(10);
+
   return (
     <Flex {...args}>
-      <Flex direction={isMobile ? "column" : "row"} justify="center" gap="12px">
-        <Checkbox>Checkbox</Checkbox>
-        <Checkbox/>
-        <Checkbox/>
-        <Checkbox/>
-        <Radio name="radio">Radio</Radio>
-        <Radio name="radio"/>
-        <Radio name="radio"/>
-        <Radio name="radio"/>
-        <Radio name="radio"/>
-        <Counter/>
+      <Flex direction="column" align="flex-start" justify="center">
+        <Checkbox disabled>Checkbox 1 <Icon.Lock/></Checkbox>
+        <Checkbox>Checkbox 2</Checkbox>
+        <Checkbox>Checkbox 3</Checkbox>
       </Flex>
+      <Flex direction="column" align="flex-start" justify="center">
+        <Radio name="radio" disabled>Option 1 <Icon.Lock/></Radio>
+        <Radio name="radio">Option 2</Radio>
+        <Radio name="radio">Option 3</Radio>
+      </Flex>
+      <Counter value={count} onChange={setCount}/>
       <Flex direction="row" justify="flex-end" gap="12px">
         <Button variant="destructive">Cancel</Button>
-        <Button>Approve</Button>
+        <Button>Save <Icon.ArrowRight/></Button>
       </Flex>
     </Flex>
   )

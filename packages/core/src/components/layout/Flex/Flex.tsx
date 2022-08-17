@@ -7,7 +7,7 @@ import useStyleCombine from "@/hooks/useStyleCombine";
 const Flex = React.forwardRef<HTMLDivElement, Types.Props>((props, ref) => {
 
   const {
-    direction, justify, align, gap, children, inline, ...attrs
+    wrap, direction, justify, align, gap, children, inline, ...attrs
   } = props
 
   const classes = useClassCombine(attrs, [
@@ -17,6 +17,7 @@ const Flex = React.forwardRef<HTMLDivElement, Types.Props>((props, ref) => {
   ])
 
   const style = useStyleCombine(attrs, {
+    '--flex-wrap': wrap,
     '--flex-direction': direction,
     '--flex-justify': justify,
     '--flex-align': align,

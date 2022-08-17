@@ -1,5 +1,6 @@
 .flexLayout {
   display: flex;
+  flex-wrap: var(--flex-wrap, wrap);
   flex-direction: var(--flex-direction, row);
   justify-content: var(--flex-justify, center);
   align-items: var(--flex-align, center);

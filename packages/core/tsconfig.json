@@ -30,8 +30,7 @@
     }
   },
   "include": [
-    "src",
-    "src/types/external.d.ts"
+    "src"
   ],
   "references": [
     {

@@ -7,3 +7,4 @@ export {default as Flex} from '@/components/layout/Flex';
 export {default as useToggle} from '@/hooks/useToggle';
 export {default as useCounter} from '@/hooks/useCounter';
 export {default as useMediaQuery} from '@/hooks/useMediaQuery';
+export {default as useResizeObserver} from '@/hooks/useResizeObserver';

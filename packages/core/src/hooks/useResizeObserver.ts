@@ -1,25 +1,14 @@
 import React from "react";
 
-type SizeType = {
-  width: number,
-  height: number
-}
+type ReturnType = ResizeObserverEntry | undefined;
 
-type ReturnType = SizeType;
+function useResizeObserver<T extends HTMLElement | null>(ref: React.MutableRefObject<T>): ReturnType {
 
-function useSize<T extends HTMLElement | null>(ref: React.MutableRefObject<T>): ReturnType {
-
-  const [size, setSize] = React.useState<SizeType>({
-    width: 0,
-    height: 0
-  });
+  const [resizeObserverEntry, setResizeObserverEntry] = React.useState<ResizeObserverEntry>();
 
   const handleResize = React.useCallback((entries: ResizeObserverEntry[]) => {
     if (entries[0]) {
-      setSize({
-        width: entries[0].contentRect.width,
-        height: entries[0].contentRect.height
-      })
+      setResizeObserverEntry(entries[0])
     }
   }, []);
 
@@ -34,7 +23,7 @@ function useSize<T extends HTMLElement | null>(ref: React.MutableRefObject<T>): 
     }
   }, [ref, handleResize])
 
-  return size;
+  return resizeObserverEntry;
 }
 
-export default useSize;
+export default useResizeObserver;

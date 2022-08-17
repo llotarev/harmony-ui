@@ -1,4 +1,5 @@
 import React from "react";
+import validateTypesProperties from "@/utils/validateTypesProperties";
 
 type CustomProperties = {
   [key: string]: string | number | undefined
@@ -6,17 +7,10 @@ type CustomProperties = {
 
 type ReturnType = Partial<React.CSSProperties>;
 
-function validProperties(properties: CustomProperties): CustomProperties {
-  const entries = Object.entries(properties).filter(([, value]) => (
-    typeof value === "string" || typeof value === "number"
-  ))
-  return Object.fromEntries(entries)
-}
-
 function useStyleCombine<P extends { style?: React.CSSProperties }>(props: P, customProperties: CustomProperties): ReturnType {
   return React.useMemo<ReturnType>(() => ({
     ...props['style'],
-    ...validProperties(customProperties)
+    ...validateTypesProperties(customProperties, ["string", "number"])
   }), [props, customProperties])
 }
 
