@@ -8,12 +8,12 @@
   align-items: center;
   gap: 8px;
   height: 46px;
-  background: var(--accent-color-500);
+  background: var(--accent-500);
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
   border-radius: var(--corner-radius);
-  color: var(--text-200);
+  color: var(--accent-100);
   padding: 0 32px;
   font-size: 18px;
   font-style: normal;
@@ -22,11 +22,11 @@
   @include mixins.transition($transition-property);
 
   &:not(:disabled):not(&-outline):not(&-flat):not(&-text):not(&-destructive):hover {
-    background: var(--accent-color-600);
+    background: var(--accent-600);
   }
 
   &:not(:disabled):focus-visible {
-    outline: 4px solid var(--accent-color-200);
+    outline: 4px solid var(--accent-200);
   }
 
   &:not(:disabled):active {
@@ -48,8 +48,8 @@
 
   &-outline {
     background: transparent;
-    color: var(--accent-color-500);
-    border-color: var(--accent-color-500);
+    color: var(--accent-500);
+    border-color: var(--accent-500);
 
     &:disabled {
       color: var(--text-400);
@@ -58,17 +58,17 @@
   }
 
   &-flat {
-    background: var(--accent-color-200);
-    color: var(--accent-color-500);
+    background: var(--accent-200);
+    color: var(--accent-500);
     border-color: transparent;
 
     &:hover {
-      background: var(--accent-color-300);
-      color: var(--accent-color-600);
+      background: var(--accent-300);
+      color: var(--accent-600);
     }
 
     &:not(:disabled):focus-visible {
-      outline: 4px solid var(--accent-color-300);
+      outline: 4px solid var(--accent-300);
     }
 
 
@@ -81,11 +81,11 @@
 
   &-text {
     background: transparent;
-    color: var(--accent-color-500);
+    color: var(--accent-500);
     border-color: transparent;
 
     &:hover {
-      color: var(--accent-color-600);
+      color: var(--accent-600);
     }
 
     &:disabled {
@@ -96,15 +96,15 @@
   }
 
   &-destructive {
-    background: var(--color-red-500);
-    color: var(--text-200);
+    background: var(--red-500);
+    color: var(--red-100);
 
     &:hover {
-      background: var(--color-red-600);
+      background: var(--red-600);
     }
 
     &:focus-visible {
-      outline-color: var(--color-red-200) !important;
+      outline-color: var(--red-200) !important;
     }
 
     &:disabled {

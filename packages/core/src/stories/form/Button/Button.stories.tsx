@@ -52,10 +52,11 @@ Custom.args = {
   ),
   style: {
     // @ts-ignore
-    '--accent-color-500': palette.Orange['500'],
-    '--accent-color-200': palette.Orange['200'],
-    '--accent-color-300': palette.Orange['300'],
-    '--accent-color-600': palette.Orange['600'],
+    '--accent-100': palette.Yellow['100'],
+    '--accent-500': palette.Yellow['500'],
+    '--accent-200': palette.Yellow['200'],
+    '--accent-300': palette.Yellow['300'],
+    '--accent-600': palette.Yellow['600'],
     '--corner-radius': '2px',
     height: 'auto',
     fontSize: "18px",

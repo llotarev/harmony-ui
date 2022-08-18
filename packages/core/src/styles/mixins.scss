@@ -1,7 +1,8 @@
 @use "vars";
 
 @mixin transition($property) {
-  transition: var(--transition-style) var(--transition-timing);
+  transition: var(--transition-style);
+  transition-duration: var(--transition-duration);
   transition-property: $property;
   will-change: $property;
 }
@@ -13,7 +14,7 @@
   min-height: $size !important;
 }
 
-@mixin scrollbar($color: #{var(--accent-color-500)}, $width: 14px) {
+@mixin scrollbar($color: #{var(--accent-500)}, $width: 14px) {
   &::-webkit-scrollbar { width: $width}
   &::-webkit-scrollbar-track { border-radius: $width }
   &::-webkit-scrollbar-thumb {

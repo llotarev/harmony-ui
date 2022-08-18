@@ -9,8 +9,8 @@
   cursor: pointer;
 
   &:checked {
-    background: var(--accent-color-500);
-    border-color: var(--accent-color-500);
+    background: var(--accent-500);
+    border-color: var(--accent-500);
   }
 
   &:disabled {

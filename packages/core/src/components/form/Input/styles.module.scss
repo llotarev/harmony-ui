@@ -5,13 +5,13 @@
   $transition-property: background, color, border, outline-width;
 
   height: 46px;
-  background: var(--tone-400);
+  background: var(--tone-200);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--tone-500);
+  border-color: var(--tone-200);
   border-radius: var(--corner-radius);
-  color: var(--text-700);
-  accent-color: var(--accent-color-500);
+  accent-color: var(--accent-500);
+  color: var(--text-500);
   padding: 0 16px;
   font-size: 18px;
   font-style: normal;
@@ -23,17 +23,17 @@
   }
 
   &:not(:disabled):hover {
-    border-color: var(--accent-color-500);
+    border-color: var(--accent-500);
   }
 
   &:not(:disabled):focus {
-    outline: 4px solid var(--accent-color-200);
-    border-color: var(--accent-color-500);
+    outline: 4px solid var(--accent-200);
+    border-color: var(--accent-500);
   }
 
   &:disabled {
-    background: var(--tone-500);
-    border-color: var(--tone-600);
+    background: var(--tone-300);
+    border-color: var(--tone-300);
     color: var(--text-400);
     cursor: not-allowed;
   }

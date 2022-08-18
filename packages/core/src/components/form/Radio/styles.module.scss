@@ -14,7 +14,7 @@
   }
 
   &:not(:disabled):checked {
-    border-color: var(--accent-color-500);
+    border-color: var(--accent-500);
   }
 
   &:disabled + * {
